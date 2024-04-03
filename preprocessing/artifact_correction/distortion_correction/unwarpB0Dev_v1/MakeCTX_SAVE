@@ -1,0 +1,7 @@
+CTXDIR = /home/ccconlin/Code/Distortion_correction/ctxsrc
+
+CTXINCBS = -I$(CTXDIR)/BasicStructs
+CTXINCINTERP = -I$(CTXDIR)/Interpolation
+
+CTXLIBBS = -L$(CTXDIR)/BasicStructs -lcorstruct
+CTXLIBINTERP = -L$(CTXDIR)/Interpolation -lcorinterp

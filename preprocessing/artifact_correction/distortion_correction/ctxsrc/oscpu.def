@@ -1,0 +1,76 @@
+ifeq ($(shell uname -m),i686)
+	MKLINC=-I/opt/intel/mkl/9.0/include
+	MKLLIB=-L/opt/intel/mkl/9.0/lib/32 -lfftw3xc_intel -lmkl -lvml
+    LIBCFLAGS = -c -O3 -msse -fPIC -Wall -W1 -fno-common $(MKLINC) $(INCBS)
+    LIBEXT=so
+    LIBLINKFLAGS = -shared $(LIBBS) $(MKLLIB) -lguide -lpthread
+    EXELINKFLAGS = -lpthread -L. -l$(LIBLINK) -lguide -lpthread $(MKLLIB)
+    EXECFLAGS= -O3 -msse -Wall $(INCBS)
+endif
+
+# SUSE 10.1 on  Xeon 5160 + VMARE
+ifeq ($(shell uname -r), 2.6.18.2-34-default)
+    #LIBCFLAGS= -c -O2 -parallel -msse3 -mtune=pentium4 -fPIC -openmp -Wall -w1 -fno-common
+    MKLINC=-I/opt/intel/mkl/9.0/include
+    LIBCFLAGS= -c -O3 -fPIC -axT -parallel -openmp -Wall -w1 -fno-common $(MKLINC) $(INCBS)
+    MKLLIB=-L/opt/intel/mkl/9.0/lib/em64t -lfftw3xc_intel -lmkl -lvml
+    LIBEXT=so
+    LIBLINKFLAGS = -shared  $(LIBBS) $(MKLLIB) -lguide -lpthread
+    EXELINKFLAGS = $(LIBBS) -L. -l$(LIBLINK) -lguide -lpthread $(MKLLIB) 
+    EXECFLAGS= -O3 -msse3 -Wall $(INCBS)
+endif
+
+# Centos 5 X86_64 on Opetron
+ifeq ($(shell uname -r), 2.6.18-8.1.1.el5)
+    #LIBCFLAGS= -c -O2 -parallel -msse3 -mtune=pentium4 -fPIC -openmp -Wall -w1 -fno-common
+    MKLINC=-I/opt/intel/mkl/9.0/include
+    MKLLIB=-L/opt/intel/mkl/9.0/lib/em64t -lfftw3xc_intel -lmkl -lvml -lmkl_lapack64
+    LIBCFLAGS= -c -O3 -fPIC -axW -parallel -openmp -Wall -w1 -fno-common $(MKLINC) $(INCBS)
+    LIBEXT=so
+    LIBLINKFLAGS = -shared  $(LIBBS) $(MKLLIB) -lguide -lpthread
+    EXELINKFLAGS = $(LIBBS) -L. -l$(LIBLINK) -lguide -lpthread $(MKLLIB)
+    EXECFLAGS= -O3 -msse3 -Wall $(INCBS)
+endif
+
+
+ifeq ($(shell uname),Darwin)
+	MKLINC=-I/Library/Frameworks/Intel_MKL.framework/Headers/ 
+	MKLLIB=-L/Library/Frameworks/Intel_MKL.framework/Libraries/32 -lfftw3xc_intel -lmkl -lvml -lmkl_lapack64
+    LIBCFLAGS= -c -O3 -parallel -axT -fPIC -openmp -Wall -w1 -fno-common $(MKLINC) $(INCBS)
+    LIBEXT=dylib
+    LIBLINKFLAGS = -dynamiclib $(LIBBS) $(MKLLIB) -lguide -lpthread
+    EXELINKFLAGS =  -bind_at_load -lpthread $(LIBBS) -L. -l$(LIBLINK) -lguide $(MKLLIB)
+    EXECFLAGS= -O3 -msse3 -Wall $(INCBS)
+endif
+
+ifeq ($(shell uname -m),x86_64)
+	# BLASINC = -L/usr/lib/gcc/x86_64-redhat-linux/3.4.3/include/
+	# BLASLIB = -L/usr/lib64 lblas -L/usr/lib/gcc/x86_64-redhat-linux/3.4.3 lg2c
+	# MKLPATH   = /space/pogo1/4/holland/packages64/mkl
+	#	MKLPATH   = /opt/intel/cmkl/10.0.2.018
+	#MKLPATH   = /opt/intel/mkl/10.0.2.018
+	#MKLPATH   = /usr/pubsw/packages/opt/intel/mkl/10.0.2.018
+	##MKLPATH   = /home/holland/intel/mkl/10.0.1.014
+	MKLINC    = -I$(MKLPATH)/include
+	
+	MKLLIBDIR = $(MKLPATH)/lib/em64t
+	#MKLLIBDIR = $(MKLPATH)/lib/64
+	
+	#MKLLIB    = -L$(MKLLIBDIR) -lmkl -lvml                # USE THIS FOR /opt/intel/mkl/9.0
+	MKLLIB    = -L$(MKLLIBDIR) -lmkl -lmkl_lapack          # USE THIS FOR /home/holland/intel/mkl/10.0.1.014
+	#MKLLIB    = -L$(MKLLIBDIR) -lmkl_em64t # -lmkl_lapack
+	#MKLLIB    = -L$(MKLLIBDIR) -lmkl_intel_lp64 -libmkl_core -lmkl_lapack
+	#MKLLIB    = -Wl,--start-group -L$(MKLLIBDIR) -lmkl_intel_lp64 -lmkl_intel_thread -libmkl_core -lmkl_sequential -lmkl_intel_thread -lmkl_cdft -lmkl_em64t -lmkl_gf_lp64  -lmkl_lapack -Wl,--end-group
+
+	#	LIBCFLAGS= -c -O3 -msse -fPIC -Wall -W1 -fno-common $(MKLINC)
+	LIBCFLAGS= -c -O3 -msse -fPIC -Wall -fno-common -openmp $(MKLINC)
+	#LIBCFLAGS= -c -O3 -msse -Wall -static -W1 -fno-common $(MKLINC)
+	#LIBCFLAGS= -c -Wall -static -W1 -fno-common $(MKLINC)
+	
+	LIBEXT=so
+	#LIBEXT=a
+	LIBLINKFLAGS = -shared $(LIBBS) $(MKLLIB) -lguide -lpthread -openmp
+	#LIBLINKFLAGS = -static $(LIBBS) $(MKLLIB) -lguide -lpthread -openmp
+    EXELINKFLAGS = $(LIBBS) -L. -l$(LIBLINK) $(MKLLIB) -lguide -lpthread
+    EXECFLAGS= -O3 -msse3 -Wall $(INCBS)
+endif

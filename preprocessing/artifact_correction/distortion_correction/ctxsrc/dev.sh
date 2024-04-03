@@ -1,0 +1,20 @@
+#!/bin/sh
+#set x
+cd BasicStructs/
+export LD_LIBRARY_PATH=${PWD}:${LD_LIBRARY_PATH}
+echo ${LD_LIBRARY_PATH}
+export DYLD_LIBRARY_PATH=${PWD}:${DYLD_LIBRARY_PATH}
+cd ..
+
+cd Interpolation/
+export LD_LIBRARY_PATH=${PWD}:${LD_LIBRARY_PATH}
+echo ${LD_LIBRARY_PATH}
+export DYLD_LIBRARY_PATH=${PWD}:${DYLD_LIBRARY_PATH}
+cd ..
+
+MKLPATH=/usr/pubsw/packages/opt/intel/mkl/10.0.2.018
+MKLLIBDIR=${MKLPATH}/lib/em64t
+export LD_LIBRARY_PATH=${MKLLIBDIR}:${LD_LIBRARY_PATH}
+echo ${LD_LIBRARY_PATH}
+export DYLD_LIBRARY_PATH=${MKLLIBDIR}:${DYLD_LIBRARY_PATH}
+echo ${DYLD_LIBRARY_PATH}

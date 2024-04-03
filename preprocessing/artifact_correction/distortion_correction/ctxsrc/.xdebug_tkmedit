@@ -1,0 +1,27 @@
+tkmedit started: Wed Aug 20 12:23:36 2008
+
+	tkmedit -f /home/adniproj/freesurfer_recons/FREESURFERRECON_130_S_0102_20080116.074916_1/mri/affinereg_to_baseline/baseline_LIA_TP2_GlobalIntensityNorm.mgz -overlay newMask.mgz 
+
+$Id: tkmedit.c,v 1.274.2.3 2006/04/15 00:13:10 nicks Exp $ $Name: stable3 $
+Set user home dir to /space/monkeys/1/home/holland/mri/ctxsrc
+Set subject home dir to /home/adniproj/freesurfer_recons/FREESURFERRECON_130_S_0102_20080116.074916_1/mri/affinereg_to_baseline/baseline_LIA_TP2_GlobalIntensityNorm.mgz
+Error in LoadFunctionalOverlay( isFileName=newMask.mgz, isOffsetFileName=(null), iRegType=2, isRegistrationFileName= ) (line 150)
+	while Copying client transform
+	Error 14: Couldn't load MRI volume.
+xDebug stack (length: 5)
+          04: FunD_New( opVolume=0x7fbfff5f28, iTransform=0xc60ab0, isFileName=./newMask.mgz, iRegistrationType=2, isRegistrationFileName=./, inScalarSize=-1, iTkregMat=0xbd7830, iAnatomicalVolume=0xbc9840)
+          04: Copying client transform
+        03: LoadFunctionalOverlay( isFileName=newMask.mgz, isOffsetFileName=(null), iRegType=2, isRegistrationFileName= )
+        03: Loading overlay
+      02: ParseCmdLineArgs( argc=5, argv=tkmedit )
+      02: Loading volume /home/adniproj/freesurfer_recons/FREESURFERRECON_130_S_0102_20080116.074916_1/mri/affinereg_to_baseline/baseline_LIA_TP2_GlobalIntensityNorm.mgz
+    01: main()
+    01: Parsing command line arguments
+  00: 
+  00: 
+ERROR: Loading functional overlay ./newMask.mgz.
+   Couldn't load MRI volume.
+Error 4 in FunV_LoadFunctionalVolume_: Couldn't load volume.
+Using interface file /space/monkeys/1/pubsw/packages/freesurfer/RH4-x86_64-R302/lib/tcl/tkmedit.tcl
+Tcl: Successfully parsed tkmedit.tcl
+Tcl: Successfully parsed tkm_functional.tcl

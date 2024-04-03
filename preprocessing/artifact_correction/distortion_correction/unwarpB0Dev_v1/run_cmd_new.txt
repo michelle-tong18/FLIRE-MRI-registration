@@ -1,0 +1,1 @@
+~/mri/dev/epic_dev/unwarpB0 -resample -xs 2 -ys 2 -zs 2 -smoothDfieldKernelWidth 5 -f 3788_fwd.mgz -r 3788_rvs.mgz -od ./Exam3788_2x2x2

@@ -1,0 +1,10 @@
+CTXDIR = /home/ccconlin/Code/Distortion_correction/ctxsrc
+# See also
+# set CTXHOME = /home/holland/mri/ctxsrcDev
+# in ~/.cshrc
+
+CTXINCBS = -I$(CTXDIR)/BasicStructs
+CTXINCINTERP = -I$(CTXDIR)/Interpolation
+
+CTXLIBBS = -L$(CTXDIR)/BasicStructs -lcorstruct
+CTXLIBINTERP = -L$(CTXDIR)/Interpolation -lcorinterp

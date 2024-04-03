@@ -1,0 +1,15 @@
+OBS =	\
+	applyUnwarpB0.o \
+	applyDeformationField.o \
+	checkCommandLine.o \
+	checkInOutDirs.o \
+	cstring_copy.o \
+	inputParams.o \
+	loadFvol.o \
+	loadFvols.o \
+	makeDirectory.o \
+	processSubject.o \
+	split.o \
+	stringCaseChange.o \
+	usage.o \
+	writeImage.o 

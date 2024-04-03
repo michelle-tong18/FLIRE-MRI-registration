@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////////////////////
+//
+// Input parameters file for "mri_atlasSelfConsistentWithPC". The only
+// requirements in writing a file like this are that a variable name
+// should be the first string in a line (the name may be preceded by
+// white space), followed by another string (doesn't matter what,
+// e.g., "="), followed by the value, and optionally followed by
+// another string or strings -- useful for documentation. Only one
+// parameter per line. Non-parameter lines will either be comment
+// lines (whose first non white-space characters must be "//") white
+// space lines, or empty lines.
+// 
+//////////////////////////////////////////////////////////////////////
+
+forwardImageInFileName = EPI_forward.mgz
+reverseImageInFileName = EPI_reverseFlipped.mgz
+
+forwardImageOutFileName = fB0uw.mgz
+reverseImageOutFileName = rB0uw.mgz
+
+displacementFieldFileName = d.mgz
+
+outDir = ./
+
+jic = 0   Switch to apply Jacobian intensity correction

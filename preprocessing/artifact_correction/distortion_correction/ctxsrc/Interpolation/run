@@ -1,0 +1,1 @@
+./volresample -M idMat4x4.txt /space/pogo2/1/holland/B0DistortionCorrection/REVtest_LG_1_24_08_1.5Tesla/structuralLPI.mgh mriOutLPI.mgh

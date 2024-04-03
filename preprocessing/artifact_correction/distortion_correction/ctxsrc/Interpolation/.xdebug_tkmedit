@@ -1,0 +1,10 @@
+tkmedit started: Mon Jun 23 13:46:54 2008
+
+	tkmedit -f mriOutLPI.mgh 
+
+$Id: tkmedit.c,v 1.274.2.3 2006/04/15 00:13:10 nicks Exp $ $Name: stable3 $
+Set user home dir to /space/monkeys/1/home/holland/mri/ctxsrc/Interpolation
+Set subject home dir to mriOutLPI.mgh
+Using interface file /space/monkeys/1/pubsw/packages/freesurfer/RH4-x86_64-R302/lib/tcl/tkmedit.tcl
+Tcl: Successfully parsed tkmedit.tcl
+Tcl: Successfully parsed tkm_functional.tcl

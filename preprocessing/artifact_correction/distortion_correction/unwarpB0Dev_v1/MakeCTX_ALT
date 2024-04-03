@@ -1,0 +1,11 @@
+#CTXDIR = /usr/local
+
+#CTXINCBS = -I$(CTXDIR)/include
+#CTXINCINTERP = -I$(CTXDIR)/include
+
+#CTXLIBBS = -L$(CTXDIR)/lib -lcorstruct
+#CTXLIBINTERP = -L$(CTXDIR)/lib -lcorinterp
+
+# Libs need to be in a default location for this...
+CTXLIBBS =  -lcorstruct
+CTXLIBINTERP = -lcorinterp
