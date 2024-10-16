@@ -75,6 +75,8 @@ GE Healthcare; NIH [R37 CA249659]; and Kruger Wyeth Research fund.
 Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## Citations
+* Tong MW, Yu HJ, Andreassen MMS, Loubrie S, Rodriguez-Soto AE, Seibert TM, Rakow-Penner R, Dale M. Longitudinal registration of T1-weighted breast MRI: A registration algorithm (FLIRE) and clinical application.
+MRI 2024;113.doi: [10.1016/j.mri.2024.110222](https://doi.org/10.1016/j.mri.2024.110222)
 * Holland D, Dale A. Alzheimer's 
-Disease Neuroimaging Initiative. Nonlinear registration of longitudinal images and measurement of change in regions of interest. 
+Disease Neuroimaging Initiative.  Nonlinear registration of longitudinal images and measurement of change in regions of interest. 
 Med Imag Anal 2011;15(4):489-97.doi: [10.1016/j.media.2011.02.005](https://doi.org/10.1016/j.media.2011.02.005)
